@@ -1,15 +1,14 @@
 package controller
 
 import (
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/dto"
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/model"
 	"fmt"
 	"net/http"
-	"project/internal/dto"
-	"project/internal/model"
 
 	"github.com/gin-gonic/gin"
 )
 
-// авторизация
 func (h *Handler) signIn(ctx *gin.Context) {
 	var user model.User
 

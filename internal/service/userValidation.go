@@ -1,8 +1,8 @@
 package service
 
 import (
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/model"
 	"net/mail"
-	"project/internal/model"
 
 	"golang.org/x/crypto/bcrypt"
 )

@@ -1,8 +1,8 @@
 package controller
 
 import (
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/model"
 	"net/http"
-	"project/internal/model"
 
 	"github.com/gin-gonic/gin"
 )
@@ -16,7 +16,6 @@ func (h *Handler) createComment(ctx *gin.Context) {
 	}
 
 	//	username := ctx.GetString("username")
-	
 }
 
 func (h *Handler) likeComment(ctx *gin.Context) {}

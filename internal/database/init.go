@@ -7,7 +7,6 @@ import (
 	_ "github.com/lib/pq"
 )
 
-// // DB set up
 func SetupDB() (*sql.DB, error) {
 	connStr := "postgres://postgres:qwerty@localhost:5432/students?sslmode=disable"
 
@@ -25,11 +24,6 @@ func SetupDB() (*sql.DB, error) {
 	if err := db.Ping(); err != nil {
 		return nil, fmt.Errorf("can't open database: %w", err)
 	}
-	// query := `PRAGMA foreign_keys=1;`
-	// stmt, err := db.Prepare(query)
-	// if err != nil {
-	// 	return nil, err
-	// }
-	// stmt.Exec()
+
 	return db, nil
 }

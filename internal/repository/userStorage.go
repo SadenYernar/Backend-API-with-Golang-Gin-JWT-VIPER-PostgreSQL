@@ -1,11 +1,11 @@
 package repository
 
 import (
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/model"
 	"database/sql"
 	"fmt"
 	"log"
 	"net/http"
-	"project/internal/model"
 )
 
 type UserStorage struct {
@@ -72,21 +72,3 @@ func (u *UserStorage) GetUserInfoByUsername(username string) (model.User, error)
 	}
 	return temp, nil
 }
-
-// func (u *UserStorage) CheckUserByEmail(user model.User) bool {
-// 	stmt := `SELECT email FROM users WHERE email == $1`
-// 	query, err := u.db.Prepare(stmt)
-// 	if err != nil {
-// 		return false, err
-// 	}
-// 	row := query.QueryRow(email)
-// 	var mail string
-// 	err = row.Scan(&mail)
-// 	if err != nil {
-// 		if errors.Is(err, sql.ErrNoRows) {
-// 			return false, nil
-// 		}
-// 		return false, err
-// 	}
-// 	return true, nil
-// }

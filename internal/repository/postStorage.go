@@ -1,10 +1,10 @@
 package repository
 
 import (
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/model"
 	"database/sql"
 	"fmt"
 	"net/http"
-	"project/internal/model"
 )
 
 type PostStorage struct {

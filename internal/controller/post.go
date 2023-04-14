@@ -1,9 +1,9 @@
 package controller
 
 import (
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/dto"
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/model"
 	"net/http"
-	"project/internal/dto"
-	"project/internal/model"
 
 	"github.com/gin-gonic/gin"
 )

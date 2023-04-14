@@ -1,11 +1,11 @@
 package service
 
 import (
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/model"
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/repository"
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/token"
 	"fmt"
 	"net/http"
-	"project/internal/model"
-	"project/internal/repository"
-	"project/internal/token"
 
 	"github.com/gofrs/uuid"
 	"golang.org/x/crypto/bcrypt"

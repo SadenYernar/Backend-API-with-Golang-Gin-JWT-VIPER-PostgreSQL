@@ -1,9 +1,9 @@
 package repository
 
 import (
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/model"
 	"database/sql"
 	"fmt"
-	"project/internal/model"
 )
 
 type CommentStorage struct {

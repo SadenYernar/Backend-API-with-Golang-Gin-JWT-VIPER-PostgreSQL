@@ -1,11 +1,11 @@
 package service
 
 import (
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/model"
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/repository"
 	"errors"
 	"fmt"
 	"net/http"
-	"project/internal/model"
-	"project/internal/repository"
 	"strings"
 	"time"
 )

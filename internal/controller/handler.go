@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"project/internal/middleware"
-	"project/internal/service"
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/middleware"
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/service"
 
 	"github.com/gin-gonic/gin"
 )

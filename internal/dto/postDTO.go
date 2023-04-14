@@ -1,7 +1,7 @@
 package dto
 
 import (
-	"project/internal/model"
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/model"
 	"time"
 )
 

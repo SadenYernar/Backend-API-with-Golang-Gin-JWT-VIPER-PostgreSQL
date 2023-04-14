@@ -5,6 +5,4 @@ import (
 )
 
 func (h *Handler) Index(ctx *gin.Context) {
-
 }
-

@@ -1,6 +1,6 @@
 package dto
 
-import "project/internal/model"
+import "Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/model"
 
 type UserResponseDTO struct {
 	Name     string `json:"name"`

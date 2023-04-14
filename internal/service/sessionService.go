@@ -1,6 +1,6 @@
 package service
 
-import "project/internal/repository"
+import "Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/repository"
 
 type SessionService struct {
 	repo repository.Session

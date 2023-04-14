@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"project/internal/token"
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/token"
 
 	"github.com/gin-gonic/gin"
 )

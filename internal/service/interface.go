@@ -1,8 +1,8 @@
 package service
 
 import (
-	"project/internal/model"
-	"project/internal/repository"
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/model"
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/repository"
 )
 
 type Service struct {

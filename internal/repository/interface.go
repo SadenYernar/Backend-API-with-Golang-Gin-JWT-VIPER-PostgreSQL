@@ -1,8 +1,8 @@
 package repository
 
 import (
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/model"
 	"database/sql"
-	"project/internal/model"
 )
 
 type Repository struct {
