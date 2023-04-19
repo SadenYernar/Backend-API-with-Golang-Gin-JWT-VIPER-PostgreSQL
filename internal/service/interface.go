@@ -22,6 +22,7 @@ type Post interface {
 	CreatePostService(post model.Post) (int, model.Post, error)
 	CheckPostInput(post model.Post) error
 	GetAllPostService() (int, []model.Post, error)
+	GetUserPostsService(username string) (int, []model.Post, error)
 }
 
 type Comment interface {
