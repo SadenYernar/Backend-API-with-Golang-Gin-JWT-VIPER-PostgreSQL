@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/dto"
 	"Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL/internal/model"
 	"net/http"
 
@@ -15,7 +16,30 @@ func (h *Handler) createComment(ctx *gin.Context) {
 		return
 	}
 
-	//	username := ctx.GetString("username")
+	status, comment, err := h.service.CreateCommentsInService(commentData)
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, err)
+		return
+	}
+
+	responce := dto.CommentDTO(comment)
+
+	ctx.JSON(status, responce)
 }
 
-func (h *Handler) likeComment(ctx *gin.Context) {}
+func (h *Handler) reactionToComment(ctx *gin.Context) {
+	var reaction model.LikeComment
+
+	if err := ctx.ShouldBindJSON(&reaction); err != nil {
+		ctx.JSON(http.StatusBadRequest, err)
+		return
+	}
+
+	likeStatus, err := h.service.LikeCommentService(reaction)
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, err)
+		return
+	}
+
+	ctx.JSON(likeStatus, reaction)
+}

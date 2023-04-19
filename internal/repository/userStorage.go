@@ -48,20 +48,6 @@ func (u *UserStorage) GetUserInfoByEmail(user model.User) (model.User, error) {
 	return temp, nil
 }
 
-func (u *UserStorage) SetSession(user model.User, token string) error {
-	records := `UPDATE users SET token=$1 WHERE uuid=$2`
-	query, err := u.db.Prepare(records)
-	if err != nil {
-		return fmt.Errorf("Error in SetSession method in repository: %w", err)
-	}
-	_, err = query.Exec(token, user.Uuid)
-	if err != nil {
-		return fmt.Errorf("Error in SetSession method in repository: %w", err)
-	}
-	fmt.Println("Session created successfully!")
-	return nil
-}
-
 func (u *UserStorage) GetUserInfoByUsername(username string) (model.User, error) {
 	row := u.db.QueryRow("SELECT uuid,email FROM users WHERE username=$1", username)
 	temp := model.User{}

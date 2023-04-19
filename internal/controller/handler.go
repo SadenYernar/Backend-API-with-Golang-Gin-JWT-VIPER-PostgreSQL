@@ -26,13 +26,13 @@ func (h *Handler) Route() *gin.Engine {
 	post := router.Group("/post").Use(middleware.AuthMiddleware())
 	{
 		post.POST("/create-post", h.createPost)
-		post.POST("/like", h.likePost)
+		post.POST("/like", h.reactionToPost)
 	}
 
 	comment := router.Group("/comment")
 	{
 		comment.POST("/create", h.createComment)
-		comment.POST("/like", h.likeComment)
+		comment.POST("/like", h.reactionToComment)
 	}
 
 	auth := router.Group("/auth")

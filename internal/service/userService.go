@@ -59,7 +59,7 @@ func (u *UserService) AuthorizationUserService(user model.User) (string, error) 
 		return "Not correct password", err
 	}
 
-	value, err := u.CreateSessionService(userInfoResponse)
+	value, err := createToken(userInfoResponse)
 	if err != nil {
 		return "Session not created", err
 	}
@@ -71,19 +71,10 @@ func (u *UserService) GetUserInfoServiceByUsername(username string) (model.User,
 	return u.repo.GetUserInfoByUsername(username)
 }
 
-func (u *UserService) CreateSessionService(user model.User) (string, error) {
-	token, err := CreateToken(user)
-	if err != nil {
-		return "Token not created", err
-	}
-
-	return token, u.repo.SetSession(user, token)
-}
-
-func CreateToken(user model.User) (string, error) {
+func createToken(user model.User) (string, error) {
 	tokenString, err := token.GenerateJWT(user.Email, user.Username)
 	if err != nil {
-		return "", err
+		return "Token not created", err
 	}
 	return tokenString, nil
 }

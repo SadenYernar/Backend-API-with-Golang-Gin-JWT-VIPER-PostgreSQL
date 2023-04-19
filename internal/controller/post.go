@@ -16,11 +16,11 @@ func (h *Handler) createPost(ctx *gin.Context) {
 		return
 	}
 
-	username := ctx.GetString("username")
+	// username := ctx.GetString("username")
 
-	userUUID, err := h.service.GetUserInfoServiceByUsername(username)
+	// userUUID, err := h.service.GetUserInfoServiceByUsername(username)
 
-	postData.Uuid = userUUID.Uuid
+	// postData.Uuid = userUUID.Uuid
 
 	status, post, err := h.service.CreatePostService(postData)
 	if err != nil {
@@ -33,5 +33,19 @@ func (h *Handler) createPost(ctx *gin.Context) {
 	ctx.JSON(status, responce)
 }
 
-func (h *Handler) likePost(ctx *gin.Context) {
+func (h *Handler) reactionToPost(ctx *gin.Context) {
+	var reaction model.LikePost
+
+	if err := ctx.ShouldBindJSON(&reaction); err != nil {
+		ctx.JSON(http.StatusBadRequest, err)
+		return
+	}
+
+	likeStatus, err := h.service.LikePostService(reaction)
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, err)
+		return
+	}
+
+	ctx.JSON(likeStatus, reaction)
 }

@@ -10,7 +10,6 @@ type Service struct {
 	Post
 	Comment
 	Reaction
-	Session
 }
 
 type User interface {
@@ -25,17 +24,23 @@ type Post interface {
 	GetAllPostService() (int, []model.Post, error)
 }
 
-type Comment interface{}
+type Comment interface {
+	GetAllCommentsInService() (int, []model.Comment, error)
+	GetCommentsByIDinService(postID int64) (int, []model.Comment, error)
+	CreateCommentsInService(com model.Comment) (int, model.Comment, error)
+	CheckCommentInput(model.Comment) error
+}
 
-type Reaction interface{}
-
-type Session interface {
-	DeleteSessionService(user model.User) error
+type Reaction interface {
+	LikePostService(like model.LikePost) (int, error)
+	LikeCommentService(like model.LikeComment) (int, error)
 }
 
 func NewService(repo repository.Repository) Service {
 	return Service{
-		User: NewUserService(repo),
-		Post: NewPostService(repo),
+		User:     NewUserService(repo),
+		Post:     NewPostService(repo),
+		Comment:  NewCommentsService(repo),
+		Reaction: NewReactionsService(repo.Reaction, repo.Post, repo.Comment),
 	}
 }

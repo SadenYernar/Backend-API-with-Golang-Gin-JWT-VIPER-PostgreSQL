@@ -13,7 +13,6 @@ const (
 		username CHAR(50) NOT NULL UNIQUE,
 		email CHAR(50) NOT NULL UNIQUE, 
 		password TEXT NOT NULL,
-		token TEXT
 	);`
 	post_table = `CREATE TABLE IF NOT EXISTS post (
 		id SERIAL NOT NULL PRIMARY KEY,
@@ -23,8 +22,8 @@ const (
 		author VARCHAR(50) NOT NULL,
 		createdat VARCHAR(50) NOT NULL,
 		categories VARCHAR(50) NOT NULL,
-		setLike INTEGER,
-		setDislike INTEGER,
+		likeField INTEGER,
+		dislikeField INTEGER,
 		FOREIGN KEY (uuid) REFERENCES users(uuid) ON DELETE CASCADE,
 		FOREIGN KEY (author) REFERENCES users(username) ON DELETE CASCADE
 	);`
@@ -33,8 +32,8 @@ const (
 		postID INT DEFAULT 0,
 		content TEXT NOT NULL,
 		author VARCHAR(50) NOT NULL,
-		setLike INT DEFAULT 0,
-		setDislike INT DEFAULT 0,
+		likeField INT DEFAULT 0,
+		dislikeField INT DEFAULT 0,
 		createdat VARCHAR(50) NOT NULL,
 		FOREIGN KEY (postID) REFERENCES post(id) ON DELETE CASCADE,
 		FOREIGN KEY (author) REFERENCES users(username) ON DELETE CASCADE

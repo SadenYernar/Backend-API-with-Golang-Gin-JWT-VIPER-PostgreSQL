@@ -11,7 +11,7 @@ type PostresponseDTO struct {
 	Content    string `json:"content"`
 	Author     string `json:"author"`
 	CreatedAt  time.Time
-	Categories string `json:"categories"`
+	Categories model.Category `json:"categories"`
 }
 
 func PostDTO(post model.Post) *PostresponseDTO {
