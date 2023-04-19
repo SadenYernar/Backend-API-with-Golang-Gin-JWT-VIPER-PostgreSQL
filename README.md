@@ -1,3 +1,3 @@
-# Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL
+# Backend-API-with-Golang-Gin-JWT-VIPER-PostgreSQL-Docker
 
 ##TODO##
